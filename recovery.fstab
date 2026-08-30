@@ -1,0 +1,57 @@
+# Mount points for Lava Agni 4 5G (MT6897)
+
+# System partitions (dynamic/erofs)
+system                  /system                erofs    flags=display=System;slotselect;logical
+system_ext              /system_ext            erofs    flags=display=System Ext;slotselect;logical
+product                 /product               erofs    flags=display=Product;slotselect;logical
+vendor                  /vendor                erofs    flags=display=Vendor;slotselect;logical
+vendor_dlkm             /vendor_dlkm           erofs    flags=display=Vendor DLKM;slotselect;logical
+odm                     /odm                   erofs    flags=display=ODM;slotselect;logical
+
+# Boot partitions
+boot                    /boot                  emmc     flags=display=Boot;slotselect
+init_boot               /init_boot             emmc     flags=display=Init Boot;slotselect
+vendor_boot             /vendor_boot           emmc     flags=display=Vendor Boot;slotselect
+dtbo                    /dtbo                  emmc     flags=display=DTBO;slotselect
+recovery                /recovery              emmc     flags=display=Recovery;slotselect
+misc                    /misc                  emmc     flags=display=Misc
+vbmeta                  /vbmeta                emmc     flags=display=VBMeta;slotselect
+vbmeta_system           /vbmeta_system         emmc     flags=display=VBMeta System;slotselect
+vbmeta_vendor           /vbmeta_vendor         emmc     flags=display=VBMeta Vendor;slotselect
+
+# Data
+userdata                /data                  f2fs     flags=display=Data;slotselect;encryptable=/metadata;fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized;keydirectory=/metadata/vold;fsverity;quota;latency=128m
+metadata                /metadata             ext4     flags=display=Metadata;slotselect
+cache                   /cache                ext4     flags=display=Cache;slotselect
+
+# MediaTek partitions
+lk                      /lk                   emmc     flags=display=LK
+logo                    /logo                 emmc     flags=display=Logo
+bootloader              /bootloader           emmc     flags=display=Bootloader
+tee1                    /tee1                 emmc     flags=display=TEE1
+tee2                    /tee2                 emmc     flags=display=TEE2
+scp                     /scp                   emmc     flags=display=SCP
+sspm                   /sspm                  emmc     flags=display=SSPM
+spmfw                  /spmfw                 emmc     flags=display=SPMFW
+gz                      /gz                    emmc     flags=display=GZ
+mcupm                  /mcupm                 emmc     flags=display=MCUPM
+ccu                    /ccu                   emmc     flags=display=CCU
+apusys                 /apusys                emmc     flags=display=APUSYS
+audio_dsp              /audio_dsp             emmc     flags=display=Audio DSP
+vpu_algo               /vpu_algo              emmc     flags=display=VPU Algo
+mvpu_algo              /mvpu_algo             emmc     flags=Display=MVPU Algo
+dpm                    /dpm                   emmc     flags=display=DPM
+expdb                  /expdb                 emmc     flags=display=Expdb
+sec                    /sec                   emmc     flags=display=Sec
+frp                    /frp                   emmc     flags=display=FRP
+para                   /para                  emmc     flags=display=Para
+
+# Connectivity
+connsys_bt             /connsys_bt            emmc     flags=display=ConnSys BT
+connsys_gnss           /connsys_gnss          emmc     flags=display=ConnSys GNSS
+connsys_wifi           /connsys_wifi          emmc     flags=display=ConnSys WiFi
+modem                  /modem                 emmc     flags=display=Modem;slotselect
+
+# External storage
+external_sd            /external_sd           vfat     flags=display=External SD;removable
+usbstorage             /usbstorage           vfat     flags=display=USB Storage;removable

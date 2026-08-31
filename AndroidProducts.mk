@@ -9,6 +9,6 @@ PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/omni_LXX525.mk
 
 COMMON_LUNCH_CHOICES := \
-    omni_LXX525-trunk_staging-eng \
-    omni_LXX525-trunk_staging-userdebug \
-    omni_LXX525-trunk_staging-user
+    omni_LXX525-eng \
+    omni_LXX525-userdebug \
+    omni_LXX525-user
